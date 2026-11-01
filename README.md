@@ -11,12 +11,12 @@ A multi-node, fault-tolerant **Hybrid Homelab Environment** designed to simulate
 
 ---
 
-## 🏗️ Architecture & Topology
+## Architecture & Topology
 
 The infrastructure is split into distinct physical and virtual tiers to avoid single points of failure (SPOF) and implement defense-in-depth principles:
 
-1. **Hypervisor Node (x86_64):** Bare-metal Proxmox VE running on a dedicated laptop host with native battery backup (integrated hardware UPS).
-2. **Management & Edge Node (ARM64):** Dedicated Raspberry Pi 3 Model B running Docker microservices for out-of-band management and failover.
+1. **Hypervisor Node (x86_64):** Bare-metal Proxmox VE running on a dedicated laptop host with native battery backup (integrated hardware UPS:).
+2. **Management & Edge Node (ARM64):** Dedicated Raspberry Pi 3 Model B running Docker.
 3. **Security & Routing Lab:** Virtualized OPNsense firewall appliance connected to dedicated Linux clients via internal virtual networking.
 4. **Client & Administration Workstation:** CachyOS (Arch Linux) utilizing native terminal utilities and SSH for remote administration.
 
@@ -24,11 +24,11 @@ The infrastructure is split into distinct physical and virtual tiers to avoid si
 
 ---
 
-## 🐳 Containerized Microservices & Edge Management
+## Containerized Microservices & Management
 
 The ARM64 management node runs containerized workloads managed via Portainer. This node hosts critical baseline services that must remain accessible even during hypervisor maintenance windows:
 
-- **Nextcloud & MariaDB:** Private self-hosted cloud storage
+- **Nextcloud:** Private self-hosted cloud storage
 - **WireGuard (`wg-easy`):** Encrypted L3 VPN endpoint for secure remote access
 - **Uptime Kuma:** Central monitoring instance
 - **Pi-hole (Secondary):** Backup DNS resolver
