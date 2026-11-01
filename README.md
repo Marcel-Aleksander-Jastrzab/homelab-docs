@@ -63,14 +63,14 @@ Both resolvers operate active blocklists (over 80,000 domains) and sinkhole trac
 
 ---
 
-## 🌐 Ingress Routing & Reverse Proxying
+## Ingress Routing & Reverse Proxying
 
 Centralized HTTP/HTTPS traffic ingress is handled by **Nginx Proxy Manager** (`192.168.178.52`). It eliminates port proliferation by routing human-readable local domains to internal container endpoints:
 
-- `nginx.home` $\rightarrow$ Nginx Proxy Manager Admin (`192.168.178.52:81`)
-- `pihole.home` $\rightarrow$ Primary Pi-hole Dashboard (`192.168.178.51:80`)
-- `uptime.home` $\rightarrow$ Monitoring Dashboard (`192.168.178.37:3001`)
-- `wireguard.home` $\rightarrow$ WireGuard Management (`192.168.178.37:51821`)
+- `nginx.home` $\rightarrow$      Nginx Proxy Manager Admin (`192.168.178.52:81`)
+- `pihole.home` $\rightarrow$     Primary Pi-hole Dashboard (`192.168.178.51:80`)
+- `uptime.home` $\rightarrow$     Monitoring Dashboard (`192.168.178.37:3001`)
+- `wireguard.home` $\rightarrow$  WireGuard Management (`192.168.178.37:51821`)
 
 ![Nginx Proxy Manager Routes](screenshots/06_nginx_proxy_hosts.png)
 
