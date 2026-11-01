@@ -48,7 +48,7 @@ During the initial deployment of Nginx Proxy Manager on the primary node, a bind
 
 ---
 
-## 🛡️ High-Availability (HA) DNS Architecture
+## High-Availability DNS Architecture
 
 DNS is configured redundantly across both physical architectures to guarantee uninterrupted name resolution across the local subnet:
 
@@ -76,7 +76,7 @@ Centralized HTTP/HTTPS traffic ingress is handled by **Nginx Proxy Manager** (`1
 
 ---
 
-## 📊 Proactive Service Health Monitoring
+## 📊 Service Health Monitoring
 
 System availability is monitored continuously via an isolated **Uptime Kuma** instance. The engine executes ICMP ping sweeps and HTTP status checks every 60 seconds:
 
@@ -107,11 +107,10 @@ To analyze Layer 3 routing, packet filtering, and NAT mechanisms outside product
 
 ---
 
-## 🏢 Enterprise Windows Server Integration
+## Windows Server Integration
 
 To maintain full multi-platform competency alongside Linux, a dedicated **Windows Server 2022 Standard** instance was deployed as a virtual machine on Proxmox VE (VM ID 102).
 - Provisioned with VirtIO drivers and QEMU guest agent integration.
-- Configured for Active Directory Domain Services (AD DS) and enterprise role evaluation.
 
 ![Windows Server 2022 on Proxmox VE](screenshots/11_windows_server_proxmox.png)
 
@@ -122,11 +121,3 @@ To maintain full multi-platform competency alongside Linux, a dedicated **Window
 Administrative tasks, shell scripting, and remote management sessions are performed from a customized **CachyOS (Arch Linux)** workstation via secure OpenSSH sessions to edge devices.
 
 ![Workstation Telemetry & SSH Management](screenshots/09_cachyos_terminal_ssh.png)
-
----
-
-## 💡 Key Engineering Takeaways
-
-1. **Separation of Concerns:** Microservices should never share ingress ports without dedicated proxy abstraction.
-2. **True Out-of-Band Reliability:** Monitoring and VPN infrastructure must reside outside the failure domain of the primary hypervisor.
-3. **Defense-in-Depth:** Combining local DNS sinkholes, stateful firewalls, and encrypted tunnels yields a resilient posture against both internal and external threat vectors.
